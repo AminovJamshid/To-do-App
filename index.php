@@ -1,29 +1,25 @@
 <?php
 
-global $pdo;
-include 'db.php';
-$stmt = $pdo->query('SELECT * FROM tasks');
-$tasks = $stmt->fetchAll();
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Todo App</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<h1>Todo List</h1>
-<a href="add_task.php">Add Task</a>
-<ul>
-    <?php foreach ($tasks as $task): ?>
-        <li>
-            <strong><?php echo htmlspecialchars($task['title']); ?></strong>
-            <p><?php echo htmlspecialchars($task['description']); ?></p>
-            <a href="edit_task.php?id=<?php echo $task['id']; ?>">Edit</a>
-            <a href="delete_task.php?id=<?php echo $task['id']; ?>">Delete</a>
-        </li>
-    <?php endforeach; ?>
-</ul>
-</body>
-</html>
+require_once "vendor/autoload.php";
+ini_set('display_errors', 1);
+if (count($_GET) > 0 || count($_POST) > 0) {
+    $task = new \home\PhpstormProjects\To-do_app\src\Task();
+
+    if (isset($_POST['text'])) {
+        $task->add($_POST['text']);
+    }
+
+    if (isset($_GET['complete'])) {
+        $task->complete($_GET['complete']);
+    }
+
+    if (isset($_GET['uncompleted'])) {
+        $task->uncompleted($_GET['uncompleted']);
+    }
+
+    if (isset($_GET['delete'])) {
+        $task->delete($_GET['delete']);
+    }
+}
+
+require 'view/home.php';
