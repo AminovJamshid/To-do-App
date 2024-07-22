@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-$task     = new \jamshid\home\TodoApp\Task(); // FIXME: Variable name collision
+$task     = new Task(); // FIXME: Variable name collision
 $todoList = $task->getAll();
 ?>
 

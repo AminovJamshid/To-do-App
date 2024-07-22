@@ -3,7 +3,7 @@
 require_once "vendor/autoload.php";
 ini_set('display_errors', 1);
 if (count($_GET) > 0 || count($_POST) > 0) {
-    $task = new \home\PhpstormProjects\To-do_app\src\Task();
+    $task = new Task();
 
     if (isset($_POST['text'])) {
         $task->add($_POST['text']);
