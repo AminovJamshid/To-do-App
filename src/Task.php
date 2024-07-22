@@ -26,7 +26,6 @@ class Task
     {
         return $this->pdo->query("SELECT * FROM todos")->fetchAll();
     }
-
     public function complete(int $id): bool
     {
         $status = true;
