@@ -12,7 +12,7 @@ class Task
         $this->pdo = DB::connect();
     }
 
-    public function add(string $text, int $userId): bool
+    public function add(string $text, int $userId = 0): bool
     {
         $status = false;
         $stmt   = $this->pdo->prepare("INSERT INTO todos (text, status, user_id) VALUES (:text, :status, :userId)");
