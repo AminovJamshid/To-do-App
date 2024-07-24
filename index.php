@@ -1,15 +1,21 @@
 <?php
 
 require_once "vendor/autoload.php";
+require "src/Task.php";
 
 date_default_timezone_set('Asia/Tashkent');
 
 $update = json_decode(file_get_contents('php://input'));
+$task = new Task();
+
+require 'API.php';
+
 
 if (isset($update)) {
     require 'bot/bot.php';
     return;
 }
+
 
 if (count($_GET) > 0 || count($_POST) > 0) {
     $task = new Task();
