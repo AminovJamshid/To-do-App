@@ -4,8 +4,8 @@ if (isset($update)){
     if(isset($update->update_id)){
         // Do something if needed
     }
-
     $path = parse_url($_SERVER['REQUEST_URI'])['path'];
+    $path = explode('/', $path);
 
     if ($path == '/add') {
         $task->add($update->text, $update->userId);
@@ -24,3 +24,11 @@ if (isset($update)){
     }
 }
 ?>
+
+
+
+
+
+
+
+
