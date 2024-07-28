@@ -3,4 +3,4 @@
         <input type="text" class="form-control" name="text">
     </div>
     <button type="submit" class="col-12 btn btn-primary">+</button>
-</form><?php
+</form>
