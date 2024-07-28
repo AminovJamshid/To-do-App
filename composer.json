@@ -1,13 +1,23 @@
 {
-    "require": {
-        "guzzlehttp/guzzle": "^7.0"
-    },
+    "name": "rustam/todo-app",
+    "description": "The best todo app ever",
     "autoload": {
         "classmap": [
             "."
         ]
+    },
+    "authors": [
+        {
+            "name": "Jamshid",
+            "email": "aminovjamshid777@gmail.com"
+        }
+    ],
+    "require": {
+        "ext-pdo": "*",
+        "guzzlehttp/guzzle": "^7.8",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "require-dev": {
+        "buggregator/trap": "^1.10"
     }
-
-
-
 }

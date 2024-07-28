@@ -22,4 +22,4 @@
     </div>
 </div>
 </body>
-</html><?php
+</html>

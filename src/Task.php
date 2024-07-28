@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-require "src/DB.php";
 
 class Task
 {
@@ -9,10 +8,10 @@ class Task
 
     public function __construct()
     {
-        $this->pdo = DB::connect();
+        $this->pdo  = DB::connect();
     }
 
-    public function add(string $text, int | NULL $userId = null): bool
+    public function add(string $text, int $userId = 3): bool
     {
         $status = false;
         $stmt   = $this->pdo->prepare("INSERT INTO todos (text, status, user_id) VALUES (:text, :status, :userId)");
@@ -24,7 +23,7 @@ class Task
 
     public function getAll(): false|array
     {
-        return $this->pdo->query("SELECT * FROM todos")->fetchAll();
+        return $this->pdo->query("SELECT * FROM todos")->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function complete(int $id): bool
