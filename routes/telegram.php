@@ -1,16 +1,16 @@
 <?php
 
 declare(strict_types=1);
-use src\User;
-$bot = new Bot();
-if (isset($update->message)) {
-    $message = $update->message;
+
+$bot    = new Bot($_ENV['TOKEN']);
+$router = new Router();
+
+if (isset($router->getUpdates()->message)) {
+    $message = $router->getUpdates()->message;
     $chatId  = $message->chat->id;
     $text    = $message->text;
 
     if ($text === "/start") {
-        $user = new User();
-        $user-> save_user($chatId);
         $bot->handleStartCommand($chatId);
         return;
     }
@@ -28,18 +28,11 @@ if (isset($update->message)) {
     $bot->addTask($chatId, $text);
 }
 
-if (isset($update->callback_query)) {
-    $callbackQuery = $update->callback_query;
+if (isset($router->getUpdates()->callback_query)) {
+    $callbackQuery = $router->getUpdates()->callback_query;
     $callbackData  = (int) $callbackQuery->data;
     $chatId        = $callbackQuery->message->chat->id;
     $messageId     = $callbackQuery->message->message_id;
-//    if ($callbackData == 'delete'){
-//
-//    }
-//    $user = new User();
-//    if ($user->getUserInfo()->status == 'delete'){
-//
-//    }
+
     $bot->handleInlineButton($chatId, $callbackData);
 }
-
