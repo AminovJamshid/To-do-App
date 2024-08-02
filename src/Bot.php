@@ -75,7 +75,7 @@ class Bot
 
     public function getAllTasks(int $chatId): void
     {
-        $query = "SELECT * FROM todos WHERE user_id = (SELECT id FROM users WHERE chat_id = :chatId)";
+        $query = "SELECT * FROM todos WHERE user_id = (SELECT id FROM users WHERE chat_id = :chatId LIMIT 1)";
         $stmt  = $this->pdo->prepare($query);
         $stmt->bindParam(':chatId', $chatId);
         $stmt->execute();

@@ -7,19 +7,9 @@
     <title>TODO App</title>
 </head>
 <body>
+<?php require 'view/partials/navbar.php'; ?>
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-8">
-            <h1 class="my-5">The Best TODO App ever</h1>
-            <?php
-            require 'todo-list.php';
-
-            echo "<hr class='border border-2 opacity-50'>";
-
-            require 'new-todo-form.php';
-            ?>
-        </div>
-    </div>
+    <h1>Home page</h1>
 </div>
 </body>
 </html>
