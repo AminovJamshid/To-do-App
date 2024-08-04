@@ -10,6 +10,7 @@
 <?php require 'view/partials/navbar.php'; ?>
 <div class="container">
     <h1>Home page</h1>
+<!--    <h2>Hello, --><?php //echo user["name"]?><!--</php></h2>-->
 </div>
 </body>
 </html>

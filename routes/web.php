@@ -30,3 +30,23 @@ $router->get('/login', fn() => require 'view/pages/auth/login.php');
 $router->get('/register', fn() => require 'view/pages/auth/register.php');
 $router->post('/register', fn() => (new User())->create());
 $router->post('/login', fn() => (new User())->login());
+
+$router->get('/logout', fn() => (new User())->Logout());
+
+
+
+
+
+
+/**
+ * SOLID - SRP | OCP | LS | IS | DI
+ * SRP - Single Responsibility Principle
+ * Registration progress:
+ * 1. Create user.
+ * 1.1 Check if user exists.
+ * 1.1.1 If true => Show  error  message.
+ * 1.2 Create new user.
+ * 2. Redirect profile.
+ *
+
+ */

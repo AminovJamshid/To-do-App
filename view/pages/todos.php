@@ -7,6 +7,7 @@ $todoList = $num->getAll();
 
 $todoList = json_decode(json_encode($todoList), true);
 ?>
+<div class="container">
 
 <div class="list-group list-group-flush">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -25,4 +26,5 @@ $todoList = json_decode(json_encode($todoList), true);
         echo "    <a href='?delete={$task['id']}' type='button' class='p-2'><i class='fa-solid fa-trash text-danger'></i></a>";
         echo "</div>";
     } ?>
+</div>
 </div>

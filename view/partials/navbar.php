@@ -10,14 +10,24 @@
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
+                <?php if ($_SESSION['email']): ?>
                     <a class="nav-link" href="/todos">Todo list</a>
+                    <?php endif; ?>
+
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/notes">Notes</a>
                 </li>
             </ul>
-            <a href="/login" class="btn btn-outline-primary mx-2">Login</a>
-            <a href="/register" class="btn btn-outline-success">Register</a>
+            <?php if (isset($_SESSION['email'])) : ?>
+                <?php echo $_SESSION['email']; ?>
+                <a href="/logout" class="btn btn-outline-danger mx-2">Logout</a>
+            <?php else : ?>
+                <a href="/login" class="btn btn-outline-primary mx-2">Login</a>
+                <a href="/register" class="btn btn-outline-success">Register</a>
+            <?php endif; ?>
+
+
         </div>
     </div>
 </nav>
