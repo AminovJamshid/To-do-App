@@ -29,12 +29,18 @@ class User
             $password = $_POST['password'];
 
             $db   = DB::connect();
-            $stmt = $db->prepare("SELECT * FROM users WHERE email = :email AND password = :password");
+            $stmt = $db->prepare("SELECT * FROM users WHERE email = :email");
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':password', $password);
             $stmt->execute();
             $result = $stmt->fetch();
-            echo $result ? header('Location: /') : 'Something went wrong';
+            if ($result){
+                $_SESSION['email'] = $email;
+                header('Location: /');
+            }
+
+            echo 'Something went wrong';
+
         }
     }
 

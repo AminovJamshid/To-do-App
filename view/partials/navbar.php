@@ -13,7 +13,6 @@
                 <?php if ($_SESSION['email']): ?>
                     <a class="nav-link" href="/todos">Todo list</a>
                     <?php endif; ?>
-
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/notes">Notes</a>
@@ -26,8 +25,6 @@
                 <a href="/login" class="btn btn-outline-primary mx-2">Login</a>
                 <a href="/register" class="btn btn-outline-success">Register</a>
             <?php endif; ?>
-
-
         </div>
     </div>
 </nav>
