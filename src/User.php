@@ -12,10 +12,6 @@ class User
 
             $_SESSION['email'] = $email;
 
-
-
-
-            
             $db   = DB::connect();
             $stmt = $db->prepare("INSERT INTO users (email, password) VALUES (:email, :password)");
             $stmt->bindParam(':email', $email);
