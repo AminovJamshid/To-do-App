@@ -6,13 +6,11 @@ class User
 {
     public function create()
     {
-
         if (isset($_POST['email']) && isset($_POST['password'])) {
             $email    = $_POST['email'];
             $password = $_POST['password'];
 
             $_SESSION['email'] = $email;
-
 
             $db   = DB::connect();
             $stmt = $db->prepare("INSERT INTO users (email, password) VALUES (:email, :password)");
