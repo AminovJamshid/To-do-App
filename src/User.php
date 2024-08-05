@@ -37,9 +37,7 @@ class User
                 $_SESSION['email'] = $email;
                 header('Location: /');
             }
-
             echo 'Something went wrong';
-
         }
     }
 
@@ -74,7 +72,5 @@ class User
         session_destroy();
         header('Location: /');
         exit();
-
     }
-
 }
